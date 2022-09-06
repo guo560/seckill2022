@@ -1,0 +1,33 @@
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.94.252.112:3306
+    username: root
+    password: gsa19990215
+    hikari:
+      pool-name: DataHikariConnectionPool
+      minimum-idle: 5
+      # ?????????????10??
+      idle-timeout: 180000
+      # ????????10
+      maximum-pool-size: 10
+      auto-commit: true
+      max-lifetime: 180000
+      connection-timeout: 30000
+      # ??????????????
+      connection-test-query: SELECT 1
+
+mybatis-plus:
+  # ??Mapper.xml????
+  mapper-locations: classpath*:/mapper/*Mapper.xml
+  # ??MyBatis?????????????????
+  type-aliases-package: com.gsa.seckill2022.pojo
+
+logging:
+  level:
+    com.gsa.com.gsa.seckill2022.mapper: debug
+
+server:
+  port: 8080
