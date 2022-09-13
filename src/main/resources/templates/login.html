@@ -61,14 +61,15 @@
 		g_showLoading();
 		var inputPass = $("#password").val();
 		var salt = g_password_salt;
-		var str = "" + salt.charAt(0) + salt.charAt(2) + inputPass + salt.charAt(5) + salt.charAt(4);
+		var str = salt.charAt(0) + salt.charAt(2) + inputPass + salt.charAt(5) + salt.charAt(4);
 		var formpass = md5(str);
 		$.ajax({
-			url: "/login/do_login",
+			url: "/login/doLogin",
 			type: "POST",
+			cache: false,
 			data:{
-				mobile:$("#mobile").val(),
-				password: formpass
+				id:$("#mobile").val(),
+				password: formpass,
 			},
 			success:function(data){
 				layer.closeAll();
@@ -76,7 +77,7 @@
 					layer.msg("登录成功");
 					window.location.href="/goods/to_list";
 				}else{
-					layer.msg(data.msg);
+					layer.msg(data.message);
 				}
 			},
 			error:function(){

@@ -3,7 +3,7 @@ spring:
     cache: false
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://47.94.252.112:3306
+    url: jdbc:mysql://47.94.252.112:3306/seckill?useUnicode=true&characterEncoding=utf-8
     username: root
     password: gsa19990215
     hikari:
